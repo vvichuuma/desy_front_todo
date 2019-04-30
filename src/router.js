@@ -5,6 +5,7 @@ import Login from './views/Login.vue'
 import Signup from './views/Signup.vue'
 import Logout from "./views/Logout.vue";
 import Welcome from './views/Welcome.vue';
+import Taskpage from './views/Taskpage.vue';
 
 
 Vue.use(Router)
@@ -25,6 +26,12 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: Signup
+    },
+
+      {
+      path: '/tasks',
+      name: 'tasks',
+      component: Taskpage
     },
 
     { path: "/logout", 
