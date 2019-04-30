@@ -54,8 +54,6 @@ font-family: 'Inconsolata', monospace;
       font-size: 13px;
      }
 
-
-
 } 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

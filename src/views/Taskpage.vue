@@ -11,10 +11,11 @@
           <h4>Here are your tasks : </h4>
 
        <div id="user_tasks">
+         <h4 v-if="tasks.length === 0 || tasks[0].length === 0" id="la">Please add your tasks ...</h4>
           
           <div v-for="task in tasks" class="tasks_c"><h5>{{task["description"]}}<span class="text-right"></span></h5>
 
-            <button type="button" class="btn btn-danger" id="butt">Delete</button>
+            <button type="button" class="btn btn-danger" id="butt" v-on:click="deletes(task , tasks)">Delete</button>
     
           </div>
 
@@ -57,6 +58,11 @@ font-family: 'Inconsolata', monospace;
    margin-top: -4%;
 }
 
+#la{
+
+  font-family: 'Dancing Script', cursive;
+
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -183,7 +189,30 @@ export default {
 
 
   },
-  methods: {},
+  methods: {
+     
+     deletes: function(task , tasks){
+        
+         var id = task.id ;
+         var array = tasks;
+
+
+           axios
+        .delete("http://localhost:3000/deltask/" + task.id)
+        .then(function(response) {
+          console.log(response.data);
+
+            var index = array.indexOf(task);
+            array.splice(index, 1);
+
+          console.log(array);
+       
+        }.bind(this));
+
+
+     }
+
+  },
   computed: {}
 };
 </script>
