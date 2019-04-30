@@ -8,6 +8,7 @@ import Welcome from './views/Welcome.vue';
 import Taskpage from './views/Taskpage.vue';
 
 
+
 Vue.use(Router)
 
 export default new Router({

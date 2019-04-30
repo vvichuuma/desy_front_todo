@@ -80,6 +80,11 @@ font-family: 'Inconsolata', monospace;
   margin:0 40%;
 }
 
+body{
+  overflow-x: hidden;
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .inner_content{

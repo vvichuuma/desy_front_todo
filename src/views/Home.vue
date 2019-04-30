@@ -70,6 +70,10 @@ font-family: 'Inconsolata', monospace;
 
 }
 
+body{
+  overflow-x: hidden;
+}
+
 </style>
 
 <script>

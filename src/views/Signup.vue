@@ -97,6 +97,11 @@ font-family: 'Inconsolata', monospace;
   margin:0 40%;
 }
 
+body{
+  overflow-x: hidden;
+}
+
+
 
 
 /* Extra small devices (phones, 600px and down) */

@@ -4,11 +4,12 @@
     </div>
 
        <h2 class="text-center"><span class="welcomet">Welcome {{user}}</span></h2>
-
+      
+         <h1 class="text-right" id="o" v-on:click="off()"><i class="fa fa-power-off"></i></h1>
 
 
      <div class="top_pad">
-          <h4>Here are your tasks : </h4>
+          <h4 class="here_task">Here are your Tasks: </h4>
 
        <div id="user_tasks">
          <h4 v-if="tasks.length === 0 || tasks[0].length === 0" id="la">Please add your tasks ...</h4>
@@ -41,12 +42,13 @@ font-family: 'Inconsolata', monospace;
 }
 
 .tasks_c{
-  padding:0.5rem;
-  border:1px solid grey;
+  padding:0rem;
+  margin-bottom: 2rem;
+
 }
 
 .top_pad{
-  border:1px solid red;
+
   margin-top: 5rem;
   padding:1rem;
 }
@@ -54,31 +56,57 @@ font-family: 'Inconsolata', monospace;
 #butt {
 
    margin-left: 80%;
-   border:1px solid red;
+
    margin-top: -4%;
 }
-
+#user_tasks{
+}
 #la{
 
   font-family: 'Dancing Script', cursive;
 
 }
 
+.here_task{
+  margin-bottom: 2rem;
+  font-family: 'Cuprum', sans-serif;
+
+}
+
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 550px) {
    html{
-      font-size: 13px;
+      font-size: 12px;
      }
 
      #butt {
 
-   margin-left: 80%;
-   border:1px solid red;
-   margin-top: -8%;
+   margin-left: 82%;
+   border:0.1rem solid grey;
+   margin-top: -9%;
 }
 
+  #user_tasks{
+    margin-top: 3%;
+  }
 
+
+
+} 
+
+@media only screen and (min-width: 550px) {
+
+   html{
+      font-size: 15px;
+     }
+
+     #butt {
+
+   margin-left: 90%;
+    border:0.1rem solid grey;
+   margin-top: -7%;
+}
 
 
 } 
@@ -92,9 +120,9 @@ font-family: 'Inconsolata', monospace;
 
      #butt {
 
-   margin-left: 80%;
-   border:1px solid red;
-   margin-top: -5%;
+   margin-left: 90%;
+border:0.1rem solid grey;
+   margin-top: -7%;
 }
 
 
@@ -107,9 +135,9 @@ font-family: 'Inconsolata', monospace;
      }
 #butt {
 
-   margin-left: 80%;
-   border:1px solid red;
-   margin-top: -4%;
+   margin-left: 90%;
+border:0.1rem solid grey;
+   margin-top: -7%;
 }
 
 
@@ -125,8 +153,8 @@ font-family: 'Inconsolata', monospace;
 #butt {
 
    margin-left: 90%;
-   border:1px solid red;
-   margin-top: -4%;
+border:0.1rem solid grey;
+   margin-top: -5%;
 }
 
 
@@ -144,13 +172,18 @@ font-family: 'Inconsolata', monospace;
 #butt {
 
    margin-left: 90%;
-   border:1px solid red;
+border:0.1rem solid grey;
    margin-top: -4%;
 }
 
 
 
 }
+
+body{
+  overflow-x: hidden;
+}
+
 
 
 
@@ -210,7 +243,12 @@ export default {
         }.bind(this));
 
 
-     }
+     },
+
+       off: function(){
+        this.$router.push("/");
+    }
+
 
   },
   computed: {}
