@@ -4,8 +4,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Signup from './views/Signup.vue'
 import Logout from "./views/Logout.vue";
-import Welcome from './views/Welcom.vue';
-
+import Welcome from './views/Welcome.vue';
 
 
 Vue.use(Router)

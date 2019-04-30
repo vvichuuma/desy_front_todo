@@ -139,6 +139,9 @@ font-family: 'Inconsolata', monospace;
 </style>
 
 <script>
+
+  var axios = require("axios")
+  
 export default {
   data: function() {
     return {
@@ -157,7 +160,7 @@ export default {
      }
 
      axios
-        .post("http://localhost:3000/api/sessions", params)
+        .post("http://localhost:3000/sessions", params)
         .then(response => {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
