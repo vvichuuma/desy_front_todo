@@ -16,20 +16,20 @@
           <label for="exampleInputEmail1">Email : </label>
           <div class="form-group row">
              <div class="col-lg-12">
-         <input type="email" class="form-control" id="email_1" aria-describedby="emailHelp" placeholder="Enter email">
+         <input type="email" class="form-control" id="email_1" aria-describedby="emailHelp" v-model="email" placeholder="Enter email" >
              </div>
           </div>
 
           <label for="inputPassword">Password : </label>
           <div class="form-group row">
              <div class="col-lg-12">
-         <input type="password" class="form-control" id="pass"  placeholder="Enter password">
+         <input type="password" class="form-control" v-model="password" id="pass"  placeholder="Enter password">
              </div>
           </div>
           
           <div class="btn_class">
           <button type="submit" class="btn btn-primary" id="login_btn" v-on:click="logs()">Login</button></div>
-           </div>
+          </div>
         </div>
 
 
@@ -70,10 +70,7 @@ font-family: 'Inconsolata', monospace;
   margin:0 auto;
 }
 
-#login_btn{
 
-
-}
 
 .btn_class{
 
@@ -145,13 +142,34 @@ font-family: 'Inconsolata', monospace;
 export default {
   data: function() {
     return {
-      message: "Welcome to Login"
+      message: "Welcome to Login",
+      email: "",
+      password: ""
     };
   },
   created: function() {},
   methods: {
     logs: function(){
-      alert("Mark is a programmer");
+
+     var params = {
+        email: this.email,
+        password: this.password
+     }
+
+     axios
+        .post("http://localhost:3000/api/sessions", params)
+        .then(response => {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          this.$router.push("/welcome");
+        })
+        .catch(error => {
+          this.errors = ["Invalid email or password."];
+           this.email = "";
+          this.password = "";
+        });
+
     } 
 
   },
